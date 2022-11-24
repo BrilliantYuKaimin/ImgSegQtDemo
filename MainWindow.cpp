@@ -33,8 +33,3 @@ void MainWindow::on_pushButton_1_clicked() {
     auto output_img = predict(src_img);
     ui->label_img->setPixmap(QPixmap::fromImage(QImage(output_img.data, output_img.cols, output_img.rows, output_img.step, QImage::Format_RGB888)));
 }
-
-void MainWindow::on_pushButton_2_clicked() {
-    auto filename = QFileDialog::getOpenFileName();
-    this->setWindowTitle(filename);
-}
