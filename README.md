@@ -17,6 +17,7 @@ ERROR: flag 'flagfile' was defined more than once (in files '/Users/paddle/xly/w
 在自己重新编译了 Paddle Inference 和 OpenCV 后问题得到解决。下面列出针对 M1 芯片的 Mac 的编译方式。
 
 #### 编译 OpenCV
+
 ```bash
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D BUILD_ZLIB=OFF -D CMAKE_INSTALL_PREFIX=/usr/local/opencv ..
 make -j$(nproc)
@@ -24,6 +25,7 @@ make install
 ```
 
 #### 编译 Paddle Inference
+
 ```bash
 git clone https://github.com/PaddlePaddle/Paddle
 cd Paddle
@@ -45,4 +47,12 @@ make TARGET=ARMV8 -j8
 ```
 
 ### OpenCV 的 Mat 转 vector
+
 参考 https://github.com/PaddlePaddle/PaddleSeg/blob/release/2.6/deploy/cpp/src/test_seg.cc 进行
+
+### [在 QLabel 中显示 OpenCV 图像](https://amin-ahmadi.com/2015/12/16/how-to-display-a-mat-image-in-qt/)
+
+### [QT GUI界面假死的处理](https://blog.csdn.net/wukai_std/article/details/70214854?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-4-70214854-blog-117574159.pc_relevant_landingrelevant&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-4-70214854-blog-117574159.pc_relevant_landingrelevant&utm_relevant_index=5)
+
+### [QString 和 std::string 的互转](https://blog.csdn.net/weixin_43953829/article/details/123322171)
+
