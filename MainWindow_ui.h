@@ -33,7 +33,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(500, 450);
+        MainWindow->resize(500, 550);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -44,7 +44,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label_img = new QLabel(centralwidget);
         label_img->setObjectName(QString::fromUtf8("label_img"));
-        label_img->setGeometry(QRect(0, 50, 500, 400));
+        label_img->setGeometry(QRect(0, 50, 500, 500));
         label_img->setFrameShape(QFrame::Box);
         pushButton_1 = new QPushButton(centralwidget);
         pushButton_1->setObjectName(QString::fromUtf8("pushButton_1"));
@@ -71,7 +71,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\345\233\276\345\203\217\345\210\206\345\211\262\347\244\272\344\276\213\347\250\213\345\272\217", nullptr));
         label_img->setText(QString());
         pushButton_1->setText(QCoreApplication::translate("MainWindow", "\346\211\223\345\274\200\345\233\276\347\211\207", nullptr));
-        label_1->setText(QCoreApplication::translate("MainWindow", "\347\202\271\345\207\273\345\267\246\350\276\271\347\232\204\346\214\211\351\222\256\344\273\245\346\211\223\345\274\200\344\270\200\345\274\240\345\233\276\347\211\207\345\271\266\345\210\206\345\211\262", nullptr));
+        label_1->setText(QCoreApplication::translate("MainWindow", "\347\202\271\345\207\273\345\267\246\350\276\271\347\232\204\346\214\211\351\222\256\344\273\245\346\211\223\345\274\200\344\270\200\345\274\240\345\233\276\347\211\207\346\210\226\350\200\205\345\260\206\345\233\276\347\211\207\346\213\226\345\205\245\344\270\213\351\235\242\347\232\204\346\241\206\344\270\255", nullptr));
         label_2->setText(QString());
     } // retranslateUi
 

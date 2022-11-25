@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>450</height>
+    <height>550</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,7 +29,7 @@
       <x>0</x>
       <y>50</y>
       <width>500</width>
-      <height>400</height>
+      <height>500</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -62,7 +62,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>点击左边的按钮以打开一张图片并分割</string>
+     <string>点击左边的按钮以打开一张图片或者将图片拖入下面的框中</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
