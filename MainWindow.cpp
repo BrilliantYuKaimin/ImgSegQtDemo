@@ -34,6 +34,7 @@ void MainWindow::forward_by_fileneme(const QString& filename) {
     ui->label_img->setPixmap(QPixmap::fromImage(QImage(src_img.data, src_img.cols, src_img.rows, src_img.step, QImage::Format_RGB888)));
     QApplication::processEvents();
     auto output_img = convert_to_pseudo_color(predict(src_img));
+    cv::addWeighted(src_img, 0.6, output_img, 0.4, 0.0, output_img);
     ui->label_img->setPixmap(QPixmap::fromImage(QImage(output_img.data, output_img.cols, output_img.rows, output_img.step, QImage::Format_RGB888)));
 
 }
