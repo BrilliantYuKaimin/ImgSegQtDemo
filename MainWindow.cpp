@@ -41,7 +41,9 @@ void MainWindow::forward_by_fileneme(const QString& filename) {
 
 void MainWindow::on_pushButton_1_clicked() {
     auto filename = QFileDialog::getOpenFileName();
-    this -> forward_by_fileneme(filename);
+    if (!filename.isEmpty()) {
+        this->forward_by_fileneme(filename);
+    }
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event) {
