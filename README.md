@@ -1,5 +1,25 @@
 # 用 Qt 做一个用 Paddle Inference 进行图像分割推理的图形界面程序
 
+## 简介
+
+本项目用于熟悉 Qt 桌面程序设计和 Paddle Inference 在 C++ 端的使用。涉及到的（对新手而言的）难点有
+
+- OpenCV 的图片格式与用于神经网络推理的数据格式之间的转换
+- 在 Qt 中显示 OpenCV 图片
+- 通过拖拽的方式得到文件名
+
+## 用法
+
+### 编译
+
+### 准备
+
+如果手头没有分割模型，可以从这里下载测试模型和「城市风光」数据集中的一张图片：
+- https://paddleseg.bj.bcebos.com/dygraph/demo/stdc1seg_infer_model.tar.gz
+- https://paddleseg.bj.bcebos.com/dygraph/demo/cityscapes_demo.png
+
+把 `model.pdmodel` 和 `model.pdiparams` 放到程序运行目录下。
+
 ## 参考资料
 
 ### Paddle Inference 与 OpenCV 的 gflags 冲突
