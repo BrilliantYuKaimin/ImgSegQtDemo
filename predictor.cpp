@@ -8,6 +8,16 @@
 
 std::shared_ptr<paddle_infer::Predictor> predictor;
 
+
+/*
+ 把图像送入一个分割网络进行推理。
+
+ 参数:
+   img (cv::Mat): 通道顺序为 RGB 的 3 通道图像
+
+ 返回:
+   (cv::Mat) 单通道灰度图
+ */
 cv::Mat predict(cv::Mat img) {
     img.convertTo(img, CV_32F, 1.0 / 255, 0);
     img = (img - 0.5) / 0.5;
@@ -44,6 +54,15 @@ cv::Mat predict(cv::Mat img) {
     return output_img;
 }
 
+/*
+ 把灰度的预测结果转成伪彩图像。
+
+ 参数:
+   gray_img (cv::Mat): 一个单通道灰度图
+
+ 返回:
+   (cv::Mat) 3 通道伪彩图像
+ */
 cv::Mat convert_to_pseudo_color(cv::Mat gray_img) {
     cv::Mat &output_img = gray_img;
     cv::cvtColor(output_img, gray_img, cv::COLOR_GRAY2BGR);
