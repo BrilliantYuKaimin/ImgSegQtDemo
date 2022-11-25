@@ -41,7 +41,39 @@ cv::Mat predict(cv::Mat img) {
         output_data_u8[i] = static_cast<uint8_t>(output_data[i]);
     }
     cv::Mat output_img(output_shape[1], output_shape[2], CV_8UC1, output_data_u8.data());
-    cv::equalizeHist(output_img, output_img);
-    cv::cvtColor(output_img, output_img, cv::COLOR_GRAY2BGR);
     return output_img;
+}
+
+cv::Mat convert_to_pseudo_color(cv::Mat gray_img) {
+    cv::Mat &output_img = gray_img;
+    cv::cvtColor(output_img, gray_img, cv::COLOR_GRAY2BGR);
+    for (int i = 0; i < output_img.rows; ++i) {
+        auto p = output_img.ptr<cv::Vec3b>(i);
+        for (int j = 0; j < output_img.rows; ++j) {
+            {
+                auto k = p[j][0];
+                p[j][0] = color_map[3 * k + 0];
+                p[j][1] = color_map[3 * k + 1];
+                p[j][2] = color_map[3 * k + 2];
+            }
+        }
+    }
+    return output_img;
+}
+
+std::vector<uchar> color_map((256 + 1) * 3, 0);
+
+void init_color_map_list(int num_classes) {
+    for (int i = 0; i < num_classes + 1; ++i) {
+        int j = 0;
+        int lab = i;
+        while (lab) {
+            color_map[i * 3] |= (((lab >> 0) & 1) << (7 - j));
+            color_map[i * 3 + 1] |= (((lab >> 1) & 1) << (7 - j));
+            color_map[i * 3 + 2] |= (((lab >> 2) & 1) << (7 - j));
+            j += 1;
+            lab >>= 3;
+        }
+    }
+    color_map.erase(color_map.begin(), color_map.begin() + 3);
 }
