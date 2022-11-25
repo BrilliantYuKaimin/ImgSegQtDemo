@@ -34,11 +34,18 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(500, 450);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
+        MainWindow->setAcceptDrops(true);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label_img = new QLabel(centralwidget);
         label_img->setObjectName(QString::fromUtf8("label_img"));
         label_img->setGeometry(QRect(0, 50, 500, 400));
+        label_img->setFrameShape(QFrame::Box);
         pushButton_1 = new QPushButton(centralwidget);
         pushButton_1->setObjectName(QString::fromUtf8("pushButton_1"));
         pushButton_1->setGeometry(QRect(5, 0, 80, 50));

@@ -4,6 +4,8 @@
 #include <opencv2/opencv.hpp>
 #include <numeric>
 #include <QFileDialog>
+#include <QDragEnterEvent>
+#include <QMimeData>
 
 #include "MainWindow.h"
 #include "MainWindow_ui.h"
@@ -17,8 +19,7 @@ MainWindow::~MainWindow() noexcept {
     delete ui;
 }
 
-void MainWindow::on_pushButton_1_clicked() {
-    auto filename = QFileDialog::getOpenFileName();
+void MainWindow::forward_by_fileneme(const QString& filename) {
     auto src_img = cv::imread(static_cast<std::string>(filename.toLocal8Bit()));
     cv::cvtColor(src_img, src_img, cv::COLOR_BGR2RGB);
 
@@ -34,4 +35,20 @@ void MainWindow::on_pushButton_1_clicked() {
     QApplication::processEvents();
     auto output_img = convert_to_pseudo_color(predict(src_img));
     ui->label_img->setPixmap(QPixmap::fromImage(QImage(output_img.data, output_img.cols, output_img.rows, output_img.step, QImage::Format_RGB888)));
+
+}
+
+void MainWindow::on_pushButton_1_clicked() {
+    auto filename = QFileDialog::getOpenFileName();
+    this -> forward_by_fileneme(filename);
+}
+
+void MainWindow::dragEnterEvent(QDragEnterEvent *event) {
+    if (event->mimeData()->hasUrls()){
+        event->acceptProposedAction();
+    }
+}
+
+void MainWindow::dropEvent(QDropEvent *event) {
+    this -> forward_by_fileneme(event->mimeData()->urls().first().toLocalFile());
 }

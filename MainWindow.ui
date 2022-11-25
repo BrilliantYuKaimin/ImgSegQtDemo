@@ -10,6 +10,15 @@
     <height>450</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>图像分割示例程序</string>
   </property>
@@ -22,6 +31,9 @@
       <width>500</width>
       <height>400</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
     </property>
     <property name="text">
      <string/>

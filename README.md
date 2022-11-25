@@ -56,3 +56,9 @@ make TARGET=ARMV8 -j8
 
 ### [QString 和 std::string 的互转](https://blog.csdn.net/weixin_43953829/article/details/123322171)
 
+### 文件拖拽
+
+- https://blog.csdn.net/xiezhongyuan07/article/details/79321526
+- https://blog.csdn.net/GarfieldGCat/article/details/112504575
+
+### [拖拽得到的路径以 file:// 开头](https://stackoverflow.com/questions/20971400/qfile-doesnt-recognize-file-url-path-format)
