@@ -68,7 +68,7 @@ cv::Mat convert_to_pseudo_color(cv::Mat gray_img) {
     cv::cvtColor(output_img, gray_img, cv::COLOR_GRAY2BGR);
     for (int i = 0; i < output_img.rows; ++i) {
         auto p = output_img.ptr<cv::Vec3b>(i);
-        for (int j = 0; j < output_img.rows; ++j) {
+        for (int j = 0; j < output_img.cols; ++j) {
             {
                 auto k = p[j][0];
                 p[j][0] = color_map[3 * k + 0];
