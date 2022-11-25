@@ -13,6 +13,11 @@
 
 MainWindow::MainWindow(QMainWindow *parent): QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
+    QApplication::processEvents();
+    paddle_infer::Config config;
+    config.SetModel("./model.pdmodel", "./model.pdiparams");
+    predictor = paddle_infer::CreatePredictor(config);
+    init_color_map_list();
 }
 
 MainWindow::~MainWindow() noexcept {
