@@ -13,9 +13,9 @@
 
 MainWindow::MainWindow(QMainWindow *parent): QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
-    QApplication::processEvents();
     paddle_infer::Config config;
-    config.SetModel("./model.pdmodel", "./model.pdiparams");
+    config.SetModel((QApplication::applicationDirPath() + "/../Resources/model.pdmodel").toStdString(),
+                    (QApplication::applicationDirPath() + "/../Resources/model.pdiparams").toStdString());
     predictor = paddle_infer::CreatePredictor(config);
     init_color_map_list();
 }

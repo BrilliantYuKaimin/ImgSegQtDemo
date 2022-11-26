@@ -17,6 +17,15 @@ include_directories("${PADDLE_LIB}/")
 link_directories("${PADDLE_LIB}/paddle/lib")
 set(DEPS ${PADDLE_LIB}/paddle/lib/libpaddle_inference${CMAKE_SHARED_LIBRARY_SUFFIX})
 
-add_executable(ImgSegQtDemo main.cpp MainWindow.cpp MainWindow.h predictor.cpp predictor.h)
+set(RESOURCE_FILES model/model.pdiparams model/model.pdmodel)
+
+add_executable(ImgSegQtDemo
+        main.cpp MainWindow.cpp MainWindow.h predictor.cpp predictor.h
+        ${RESOURCE_FILES})
+
+set_target_properties(ImgSegQtDemo PROPERTIES
+        MACOSX_BUNDLE TRUE
+        RESOURCE "${RESOURCE_FILES}")
+
 target_link_libraries(ImgSegQtDemo ${DEPS} ${OpenCV_LIBS}
         Qt::Core Qt::Gui Qt::Widgets)
