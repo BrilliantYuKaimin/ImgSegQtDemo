@@ -25,7 +25,7 @@ MainWindow::~MainWindow() noexcept {
 }
 
 void MainWindow::forward_by_fileneme(const QString& filename) {
-    auto src_img = cv::imread(static_cast<std::string>(filename.toLocal8Bit()));
+    auto src_img = cv::imread(filename.toStdString());
     cv::cvtColor(src_img, src_img, cv::COLOR_BGR2RGB);
 
     this->resize(src_img.cols, src_img.rows + 50);
