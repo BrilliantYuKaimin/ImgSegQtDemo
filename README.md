@@ -8,17 +8,23 @@
 - 在 Qt 中显示 OpenCV 图片
 - 通过拖拽的方式得到文件名
 
-## 用法
+## 编译
 
-### 编译
+本项目依赖 Paddle Inference、Qt6 和 OpenCV。
 
-### 准备
+如果手头没有分割模型，可以运行 `prepare.sh` 下载一个测试模型。如果有，就新建一个 `model` 目录，把 `model.pdmodel` 和 `model.pdiparams` 放到其中。
 
-如果手头没有分割模型，可以从这里下载测试模型和「城市风光」数据集中的一张图片：
-- https://paddleseg.bj.bcebos.com/dygraph/demo/stdc1seg_infer_model.tar.gz
-- https://paddleseg.bj.bcebos.com/dygraph/demo/cityscapes_demo.png
+本仓库中的 `CMakeLists.txt` 只适用于 macOS，在终端中运行下面的命令即可编译：
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
 
-把 `model.pdmodel` 和 `model.pdiparams` 放到程序运行目录下。
+如果使用测试模型，可以用「城市风光」数据集中的一张图片来测试：https://paddleseg.bj.bcebos.com/dygraph/demo/cityscapes_demo.png
+
+
 
 ## 参考资料
 
@@ -72,9 +78,9 @@ make TARGET=ARMV8 -j8
 
 ### [在 QLabel 中显示 OpenCV 图像](https://amin-ahmadi.com/2015/12/16/how-to-display-a-mat-image-in-qt/)
 
-### [QT GUI界面假死的处理](https://blog.csdn.net/wukai_std/article/details/70214854?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-4-70214854-blog-117574159.pc_relevant_landingrelevant&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-4-70214854-blog-117574159.pc_relevant_landingrelevant&utm_relevant_index=5)
+### [QT GUI界面假死的处理](https://blog.csdn.net/wukai_std/article/details/70214854)
 
-### [QString 和 std::string 的互转](https://blog.csdn.net/weixin_43953829/article/details/123322171)
+### [QString 和 std::string 的互转](https://ccf19881030.blog.csdn.net/article/details/115357359)
 
 ### 文件拖拽
 
