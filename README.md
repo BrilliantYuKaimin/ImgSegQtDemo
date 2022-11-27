@@ -88,3 +88,5 @@ make TARGET=ARMV8 -j8
 - https://blog.csdn.net/GarfieldGCat/article/details/112504575
 
 ### [拖拽得到的路径以 file:// 开头](https://stackoverflow.com/questions/20971400/qfile-doesnt-recognize-file-url-path-format)
+
+### [打包资源文件进 MacAPP](https://cmake.org/cmake/help/latest/prop_tgt/RESOURCE.html)
